@@ -22,9 +22,9 @@
 
 ### Популярни IDE-та за C++
 
-- [**Visual Studio**]()
-- [**Visual Studio Code**]()
-- [**CLion**]()
+- [**Visual Studio**](https://visualstudio.microsoft.com/downloads/)
+- [**Visual Studio Code**](https://code.visualstudio.com/download)
+- [**CLion**](https://www.jetbrains.com/clion/)
 
 ## Какво правят `#include` и `using namespace std`?
 
