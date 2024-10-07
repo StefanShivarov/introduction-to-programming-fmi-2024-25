@@ -13,6 +13,9 @@
 
 - In GitHub desktop - Repository -> Repository settings... -> Fork behavior -> select To contribute to the parent repository
   ![repo menu](images/repository-settings-menu.png)
+
+  _На снимката по-долу си представете, че пише StefanShivarov/introduction-to-programming-2024-25_
+
   ![repo-settings](images/repository-fork-settings.png)
 
 **3.** Fetch origin
@@ -24,6 +27,7 @@
 - You should create branch for each **3 tasks**.
 - The branch should be created from the master branch of the original repository. In this way you will always have the latest changes .
 - [About branches.](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+
 - [How to create branch.](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches#creating-a-branch)
 
 **5.** Add a solution for a task
