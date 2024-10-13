@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-   int a = 0, b = 0, c = 0, d = 0, sum = 0;
+   unsigned int a = 0, b = 0, c = 0, d = 0, sum = 0;
 
    cout << "Numbers: ";
    cin >> a >> b >> c >> d;

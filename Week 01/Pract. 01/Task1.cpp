@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-   int a = 0, b = 0;
+   unsigned int a = 0, b = 0;
 
    cout << "Dividend: "; cin >> a;
    cout << "Divisor: "; cin >> b;
