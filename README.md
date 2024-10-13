@@ -2,23 +2,14 @@
 
 _Материали от семинари и практикуми на група 1_
 
-## Учебен план
+### Учебен план
 
-<style>
-  pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-</style>
-
-<pre>
-  <a href="https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2001">Седмица 01</a> - Увод в програмирането със C++. Среда за разработка (IDE). Примитивни типове данни. Основни аритметични операции. Вход и изход. Условни оператори. Git и GitHub.
-  <a href="https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2002">Седмица 02</a> - Цикли. Оператори за цикъл. Break и continue.
+<pre style="white-space: pre-wrap; word-wrap: break-word; max-width: 100%; overflow-x: hidden; background-color: #145078; color: #fff;">
+  <a style="color: pink; font-weight: bold;" href="https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2001">Седмица 01</a> - Увод в програмирането със C++. Среда за разработка (IDE). Примитивни типове данни. Основни аритметични операции. Вход и изход. Условни оператори. Git и GitHub.
+  <a style="color: pink; font-weight: bold;" href="https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2002">Седмица 02</a> - Цикли. Оператори за цикъл. Break и continue.
 </pre>
 
-## Преподаватели:
+### Преподаватели:
 
 <table style="width:100%;" >
   <tr>
