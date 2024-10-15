@@ -13,4 +13,6 @@ int main() {
 	}
 
 	cout << "Out: " << factorial;
+
+	return 0;
 }
