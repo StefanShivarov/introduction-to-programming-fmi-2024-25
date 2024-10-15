@@ -18,4 +18,6 @@ int main() {
 	}
 
 	cout << "Out: " << positive_number;
+
+	return 0;
 }
