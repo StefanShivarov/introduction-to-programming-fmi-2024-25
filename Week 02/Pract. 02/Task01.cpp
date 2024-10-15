@@ -17,4 +17,6 @@ int main() {
 	}
 
 	cout << "Out: " << sum;
+
+	return 0;
 }

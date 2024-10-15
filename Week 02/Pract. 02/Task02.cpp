@@ -20,4 +20,6 @@ int main() {
 	}
 
 	cout << "Out: " << final_number;
+
+	return 0;
 }
