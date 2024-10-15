@@ -26,4 +26,6 @@ int main() {
 	}
 
 	cout << "Out: " << negative_number;
+
+	return 0;
 }
