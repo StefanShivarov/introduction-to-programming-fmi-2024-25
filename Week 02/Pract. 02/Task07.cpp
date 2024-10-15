@@ -21,4 +21,6 @@ int main() {
 	}
 
 	cout << "Out: " << fibonacci_previous + fibonacci_current;
+
+	return 0;
 }
