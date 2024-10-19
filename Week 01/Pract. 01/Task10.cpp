@@ -1,32 +1,19 @@
+//
+// Created by Niya Neykova on 12.10.24.
+//
+
 #include <iostream>
-#include <math.h>
+#include <cmath>
+using namespace std;
+int main() {
+    int a,b,c;
+    cin>>a>>b>>c;
+    double d=0,x1=0,x2=0;
+    d=pow(b,2)-4*a*c;
+    x1=(-b+sqrt(d))/(2*a);
+    x2=(-b-sqrt(d))/(2*a);
+    cout<<"x1="<<x1<<endl;
+    cout<<"x2="<<x2<<endl;
 
-int main()
-{
-	int a = 0;
-	int b = 0;
-	int c = 0;
-	int discriminant = 0;
-	double x1 = 0;
-	double x2 = 0;
-
-	std::cout << "Please enter a, b and c: "; std::cin >> a >> b >> c;
-
-	discriminant = b * b - 4 * a * c;
-
-	if (discriminant < 0) {
-		std::cout << "Roots are complex conjugate" << std::endl;
-	} else if (!discriminant) {
-		x1 = -b / 2 * a;
-		std::cout << "x1 = " << x1 << std::endl;
-		std::cout << "x2 = " << x1 << std::endl;
-	} else {
-		x1 = -b + sqrt(discriminant) / 2 * a;
-		x2 = -b - sqrt(discriminant) / 2 * a;
-
-		std::cout << "x1 = " << x1 << std::endl;
-		std::cout << "x2 = " << x2 << std::endl;
-	}
-
-	return 0;
+    return 0;
 }
