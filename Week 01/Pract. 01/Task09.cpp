@@ -1,17 +1,21 @@
+//
+// Created by Niya Neykova on 12.10.24.
+//
+
 #include <iostream>
-
-int main()
-{
-	int year = 0;
-
-    std::cout << "Year: ";
-    std::cin >> year;
-
-    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
-        std::cout << "Leap year";
+using namespace std;
+int main() {
+    int y;
+    cin >> y;
+    if(y%400==0) {
+        cout<<"Leap year"<<endl;
     } else {
-        std::cout << "Not a leap year";
+        if(y%100!=0 && y%4==0) {
+            cout<<"Leap year"<<endl;
+        } else {
+            cout<<"Not leap"<<endl;
+        }
     }
 
-	return 0;
+    return 0;
 }
