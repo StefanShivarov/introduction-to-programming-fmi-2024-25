@@ -1,24 +1,23 @@
+//
+// Created by Niya Neykova on 11.10.24.
+//
+
 #include <iostream>
+using namespace std;
+int main() {
+    int a,b,x;
+    cin>>a>>b>>x;
+    if(x<a) {
+        cout<<1<<endl;
+    } else if(x==a) {
+        cout<<2<<endl;
+    } else if(x>a && x<b) {
+        cout<<3<<endl;
+    } else if(x==b) {
+        cout<<4<<endl;
+    } else if(x>b) {
+        cout<<5<<endl;
+    }
 
-int main()
-{
-	int a = 0;
-	int b = 0;
-	int x = 0;
-
-	std::cout << "Please enter three numbers: "; std::cin >> a >> b >> x;
-
-	if (x < a) {
-		std::cout << "1" << std::endl;
-	} else if ( x == a ) {
-		std::cout << "2" << std::endl;
-	} else if ( x > a && x < b ) {
-		std::cout << "3" << std::endl;
-	} else if ( x == b ) {
-		std::cout << "4" << std::endl;
-	} else if (x > b) {
-		std::cout << "5" << std::endl;
-	}
-
-	return 0;
+    return 0;
 }
