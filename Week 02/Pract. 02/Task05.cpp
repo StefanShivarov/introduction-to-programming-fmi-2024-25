@@ -21,4 +21,6 @@ int main() {
     }
 
     cout << smallest;
+
+    return 0;
 }
