@@ -1,36 +1,25 @@
+//
+// Created by Niya Neykova on 11.10.24.
+//
+
 #include <iostream>
+using namespace std;
+int main() {
+    int a,b,c,d,s=0;
+    cin>>a>>b>>c>>d;
+    if(a%2==0) {
+        s+=a;
+    }
+    if(b%2==0) {
+        s+=b;
+    }
+    if(c%2==0) {
+        s+=c;
+    }
+    if(d%2==0) {
+        s+=d;
+    }
+    cout<<s<<endl;
 
-int main()
-{
-	int first_number = 0;
-	int second_number = 0;
-	int third_number = 0;
-	int fourth_number = 0;
-	int final_sum = 0;
-
-	std::cout << "Please enter four numbers: "; std::cin >> first_number >> second_number >> third_number >> fourth_number;
-
-	if (!(first_number % 2))
-	{
-		final_sum += first_number;
-	}
-
-	if (!(second_number % 2))
-	{
-		final_sum += second_number;
-	}
-
-	if (!(third_number % 2))
-	{
-		final_sum += third_number;
-	}
-
-	if (!(fourth_number % 2))
-	{
-		final_sum += fourth_number;
-	}
-
-	std::cout << final_sum;
-
-	return 0;
+    return 0;
 }
