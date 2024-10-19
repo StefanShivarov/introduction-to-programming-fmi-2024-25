@@ -1,31 +1,21 @@
+//
+// Created by Niya Neykova on 11.10.24.
+//
+
 #include <iostream>
+using namespace std;
+int main() {
+    int number;
+    double a=0,b=0,c=0,d=0;
+    cin >> number;
+    a = number%10; //2
+    number=number/10;  //143
+    b=number%10;    //3
+    number=number/10;   //14
+    c=number%10; //4
+    d=number/10; //1
 
-int main()
-{
-	int prompt_number = 0;
-	int final_sum = 0;
-	int final_product = 0;
-	float final_average = 0;
-	int digit_1 = 0;
-	int digit_2 = 0;
-	int digit_3 = 0;
-	int digit_4 = 0;
+    cout<<"sum="<<a+b+c+d<<" p="<<a*b*c*d<<" avr="<<(a+b+c+d)/4<<endl;
 
-	std::cout << "Please enter 4-digit numbers "; std::cin >> prompt_number;
-
-	digit_4 = prompt_number % 10;
-	prompt_number /= 10;
-	digit_3 = prompt_number % 10;
-	prompt_number /= 10;
-	digit_2 = prompt_number % 10;
-	prompt_number /= 10;
-	digit_1 = prompt_number;
-
-	final_sum = digit_1 + digit_2 + digit_3 + digit_4;
-	final_product = digit_1 * digit_2 * digit_3 * digit_4;
-	final_average = final_sum / 4.0;
-
-	std::cout << "sum=" << final_sum << " p=" << final_product << " avr=" << final_average << std::endl;
-
-	return 0;
+    return 0;
 }
