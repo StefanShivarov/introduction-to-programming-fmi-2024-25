@@ -1,21 +1,20 @@
+//
+// Created by Niya Neykova on 12.10.24.
+//
+
 #include <iostream>
-#include <math.h>
+using namespace std;
+int main() {
+    double a,b;
+    cout<<"First number: ";
+    cin>>a;
+    cout<<"Second number: ";
+    cin>>b;
+    a=a*b;
+    b=a/b;
+    a=a/b;
+    cout<<"First number: "<<a<<endl;
+    cout<<"Second number: "<<b<<endl;
 
-int main()
-{
-	float first_number = 0;
-	float second_number = 0;
-
-	std::cout << "First number: "; std::cin >> first_number;
-	std::cout << "Second number: "; std::cin>> second_number;
-
-	first_number += second_number;
-	second_number = first_number - second_number;
-	first_number -= second_number;
-
-
-	std::cout << "First number: "<< first_number << std::endl;
-	std::cout << "Second number: " << second_number << std::endl;
-
-	return 0;
+    return 0;
 }
