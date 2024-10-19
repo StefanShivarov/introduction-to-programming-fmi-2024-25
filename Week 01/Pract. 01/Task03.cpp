@@ -1,24 +1,21 @@
+//
+// Created by Niya Neykova on 11.10.24.
+//
+
 #include <iostream>
+using namespace std;
+int main() {
+    int a,s=0,m=0,h=0;
+    cout<<"Seconds: ";
+    cin>>a;
 
-int main()
-{
-	int seconds = 0;
-	int days = 0;
-	int hours = 0;
-	int minutes = 0;
-	const int TIME_RATIO = 60;
-	const int DAY_RATIO = 24;
+    s=a%60;
+    a=a/60;
+    m=a%60;
+    a=a/60;
+    h=a%24;
+    a=a/24;
+    cout<<a<<" days, "<<h<<" hours, "<<m<<" minutes and "<<s<<" seconds"<<endl;
 
-	std::cout << "Please enter seconds: "; std::cin >> seconds;
-
-	days = seconds / (TIME_RATIO * TIME_RATIO * DAY_RATIO);
-	seconds %= (TIME_RATIO * TIME_RATIO * DAY_RATIO);
-	hours = seconds / (TIME_RATIO * TIME_RATIO);
-	seconds %= (TIME_RATIO * TIME_RATIO);
-	minutes = seconds / TIME_RATIO;
-	seconds %= TIME_RATIO;
-
-	std::cout << days << " days, " << hours << " hours, " << minutes << " minutes, " << seconds << " seconds";
-
-	return 0;
+    return 0;
 }
