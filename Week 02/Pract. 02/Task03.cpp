@@ -12,4 +12,6 @@ int main() {
     }
 
     cout << factorial;
+
+    return 0;
 }
