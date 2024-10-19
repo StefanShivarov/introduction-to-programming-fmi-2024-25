@@ -1,18 +1,19 @@
-#include <iostream>
+//
+// Created by Niya Neykova on 11.10.24.
+//
 
+#include <iostream>
+using namespace std;
 int main()
 {
-	int dividend = 0;
-	int divisor = 0;
+    int a,b;
+    cout<<"Dividend: ";
+    cin>>a;
+    cout<<"Divisor: ";
+    cin>>b;
 
-	std::cout << "Please enter two numbers: "; std::cin >> dividend >> divisor;
+    cout<<"The quotient of the division is: "<<a/b<<endl;
+    cout<<"The remainder of the division is: "<<a%b<<endl;
 
-	std::cout << "The quotient of the division is : " << dividend / divisor << std::endl;
-
-	if (dividend % divisor)
-	{
-		std::cout << "The remainder of the division is : " << dividend % divisor << std::endl;
-	}
-
-	return 0;
+    return 0;
 }
