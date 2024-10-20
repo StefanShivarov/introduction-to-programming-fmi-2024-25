@@ -1,9 +1,9 @@
 #include <iostream>
-#include <math.h>
 
 using namespace std;
 
 int main() {
+
 	int prompt_number = 0;
 
 	cout << "Please enter the number: ";
