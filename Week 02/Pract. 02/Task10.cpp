@@ -1,25 +1,24 @@
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
 int main() {
-    int num = 0;
 
-    cout << "Num: "; 
-    cin >> num;
+	int prompt_number = 0;
 
-    while (true) {
-        int base = log2(num);
-        num = num - pow(2, base);
+	cout << "Please enter the number: ";
+	cin >> prompt_number;
 
-        if (num > 0) {
-            cout << "2^" << base << " + ";
-        } else {
-            cout << "2^" << base << endl;
-            break;
-        }
-    }
+	for (int i = prompt_number; i > -1;  i--) {
+		if (prompt_number - pow(2,i) >= 0) {
+			prompt_number -= pow(2, i);
+			cout << "2^" << i << " ";
 
-    return 0;
+			if (prompt_number > 0 && i > 0) {
+				cout << "+ ";
+			}
+		}
+	}
+
+	return 0;
 }

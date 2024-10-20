@@ -3,20 +3,26 @@
 using namespace std;
 
 int main() {
-    unsigned int n = 0;
+    int prompt_number = 0;
+    int counter = 0;
+    int floor_counter = 0;
 
-    cout << "N: ";
-    cin >> n;
+    cout << "Please enter the number to draw a zipline of numbers: ";
+    cin >> prompt_number;
 
-    for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= n; ++j) {
-            if (j % 2 == 0) {
-                cout << j * n - i + 1 << " ";
-            } else {
-                cout << (j - 1) * n + i << " ";
+    while (counter < prompt_number) {
+        while (floor_counter < prompt_number) {
+            if (floor_counter % 2) {
+                cout << prompt_number * (floor_counter + 1) - (prompt_number - prompt_number + counter) << " ";
             }
+            else {
+                cout << prompt_number * (floor_counter + 1) - (prompt_number - counter - 1) << " ";
+            }
+            ++floor_counter;
         }
-        
+        floor_counter = 0;
+        ++counter;
         cout << endl;
     }
+    return 0;
 }
