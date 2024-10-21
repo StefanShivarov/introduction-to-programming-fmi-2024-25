@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< Updated upstream
 
 using namespace std;
 
@@ -25,3 +26,28 @@ int main() {
 
     return 0;
 }
+=======
+using namespace std;
+
+int main() {
+    int n, min = 0, br = 0;
+    cin >> n;
+    if (n < 0) {
+        br++;
+        min = n;
+    }
+    while (br < 3) {
+        cin >> n;
+        if (n < 0) {
+            br++;
+            if (n < min) {
+                min = n;
+            }
+        } else {
+            br = 0;
+        }
+    }
+    cout << min;
+    return 0;
+}
+>>>>>>> Stashed changes
