@@ -141,7 +141,7 @@
 1
 ```
 
-_sum of 999999999999's digits is 118,_
+_sum of 999999999999's digits is 108,_
 
 _sum of 118's digits is 10,_
 
