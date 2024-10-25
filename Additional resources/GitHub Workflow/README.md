@@ -1,4 +1,8 @@
-## GitHub workflow
+# GitHub workflow
+
+## [Видео: Как да предадем задачите си в GitHub с Pull Request, използвайки GitHub Desktop](https://youtu.be/IeEsHCtohD4)
+
+[![Как да предадем задачите си в GitHub с Pull Request, използвайки GitHub Desktop](https://img.youtube.com/vi/IeEsHCtohD4/0.jpg)](https://youtu.be/IeEsHCtohD4)
 
 **0.** Star the repository
 ![image](images/star-repo.png)
