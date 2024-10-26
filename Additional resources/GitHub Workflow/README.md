@@ -1,4 +1,8 @@
-## GitHub workflow
+# GitHub workflow
+
+## [Видео: Как да предадем задачите си в GitHub с Pull Request, използвайки GitHub Desktop](https://youtu.be/IeEsHCtohD4)
+
+[![Как да предадем задачите си в GitHub с Pull Request, използвайки GitHub Desktop](https://img.youtube.com/vi/IeEsHCtohD4/0.jpg)](https://youtu.be/IeEsHCtohD4)
 
 **0.** Star the repository
 ![image](images/star-repo.png)
@@ -39,7 +43,8 @@
 
 - Commit the file for the task.
 - **Each task should be in seperate commit.**
-- Repeat step 5. and 6. until you have 3 tasks in the new branch. <br />
+- Upload a maximum of 3 tasks per request (could be 1 or 2)
+- Repeat step 5. and 6. until you have 1-3 tasks in the new branch. <br />
   Then create a new branch and start from step 4.
 - [About commits.](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#about-commits)
 
@@ -53,7 +58,7 @@
   Pract.\<number\>: Add \<first task number\> - \<last task number\> | \<name\>
 
   Example:
-  Pract.03: Add 01-03 | John Doe
+  Pract.03: Add Task 01 | John Doe
   ```
 
 - **The description of the pull Request should be**
