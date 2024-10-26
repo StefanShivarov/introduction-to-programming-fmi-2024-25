@@ -4,15 +4,14 @@ int main()
 {
 	int year = 0;
 
-	std::cout << "Please enter a year: "; std::cin >> year;
+    std::cout << "Year: ";
+    std::cin >> year;
 
-	if ( !(year % 400) ) {
-		std::cout << "Leap year";
-	} else if ( !(year % 100) ) {
-		std::cout << "Not leap";
-	} else if ( !(year % 4) ) {
-		std::cout << "Leap year";
-	}
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+        std::cout << "Leap year";
+    } else {
+        std::cout << "Not a leap year";
+    }
 
 	return 0;
 }
