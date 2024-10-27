@@ -3,8 +3,8 @@
 
 using namespace std;
 
-int getKDigit(const int, const int);
 int reverseNumber(int);
+int getKDigit(const int, const int);
 
 int main() {
     int n = 0;
