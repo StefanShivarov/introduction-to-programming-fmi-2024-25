@@ -13,11 +13,10 @@ int main() {
     return 0;
 }
 
-int concat(int first, const int second) {
-    int second_copy = second;
-    while (second_copy) {
+int concat(int first, int second) {
+    while (second) {
         first *= 10;
-        second_copy /= 10;
+        second /= 10;
     }
 
     return first + second;
