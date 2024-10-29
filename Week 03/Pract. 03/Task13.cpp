@@ -1,37 +1,25 @@
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
-bool isPrime(int n);
-long long primeSum(int n);
+bool isPrime(const int);
+unsigned int sumAllPrimesUntil(const int);
 
 int main() {
-    int n;
-    cin >> n;
+    int num = 0;
 
-    cout << primeSum(n);
+    cout << "Enter a number: ";
+    cin >> num;
 
-    return 0;
+    cout << sumAllPrimesUntil(num) << endl;
 }
 
-bool isPrime(const int n) {
-    if (n < 2) return false;
-    if (n == 2) return true;
+unsigned int sumAllPrimesUntil(const int num) {
+    unsigned int sum = 0;
 
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0) return false;
+    for (int i = 2; i <= num; ++i) {
+        if (isPrime(i)) {
+            sum += i;
+        }
     }
-
-    return true;
-}
-
-long long primeSum(const int n) {
-    long long sum = 0;
-
-    for (int i = 2; i <= n; i++) {
-        if (isPrime(i)) sum += i;
-    }
-
-    return sum;
 }
