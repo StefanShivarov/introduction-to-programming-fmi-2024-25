@@ -12,22 +12,6 @@ int main() {
     cin >> num;
 
     cout << sumAllPrimesUntil(num) << endl;
-
-    return 0;
-}
-
-bool isPrime(const int num) {
-    if (num < 2) {
-        return false;
-    }
-
-    for (int i = 2; i < num; ++i) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-
-    return true;
 }
 
 unsigned int sumAllPrimesUntil(const int num) {
@@ -38,6 +22,4 @@ unsigned int sumAllPrimesUntil(const int num) {
             sum += i;
         }
     }
-
-    return sum;
 }
