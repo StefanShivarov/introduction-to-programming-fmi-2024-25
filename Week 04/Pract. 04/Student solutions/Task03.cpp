@@ -17,8 +17,6 @@ void findMinMax(const int* arr, int size, int& minValue, int& maxValue)
 		}
 	}
 	std::cout << "Min: " << minValue << "\nMax: " << maxValue;
-
-	return;
 }
 
 void main()
@@ -36,6 +34,4 @@ void main()
 	}
 
 	findMinMax(numbers, ARRAY_SIZE, minimum, maximum);
-	
-	return;
 }
