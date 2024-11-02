@@ -1,38 +1,46 @@
 #include <iostream>
 
-void sumRows()
+void fillArray(int (*array)[4], const int SIZE)
 {
-	const unsigned int MAX_SIZE = 4;
-	int numbers[MAX_SIZE][MAX_SIZE] = {};
-	int sum[MAX_SIZE] = {};
-
-	for (int rowIncrement = 0; rowIncrement < MAX_SIZE; ++rowIncrement)
+	for (int i = 0; i < SIZE; ++i)
 	{
-		for (int columnIncrement = 0; columnIncrement < MAX_SIZE; ++columnIncrement)
+		for (int j = 0; j < SIZE; ++j)
 		{
-			std::cin >> numbers[rowIncrement][columnIncrement];
+			std::cin >> array[i][j];
+		}
+	}
+}
+
+int* sumRows(int (*array)[4], int* resultArray, const int MAX_SIZE)
+{
+	for (int i = 0; i < MAX_SIZE; ++i)
+	{
+		for (int j = 0; j < MAX_SIZE; ++j)
+		{
+			resultArray[i] += array[i][j];
 		}
 	}
 
-	for (int rowIncrement = 0; rowIncrement < MAX_SIZE; ++rowIncrement)
-	{
-		for (int columnIncrement = 0; columnIncrement < MAX_SIZE; ++columnIncrement)
-		{
-			sum[rowIncrement] += numbers[rowIncrement][columnIncrement];
-		}
-	}
+	return resultArray;
+}
 
+void printArray(int array[], int MAX_SIZE)
+{
 	for (int increment = 0; increment < MAX_SIZE; ++increment)
 	{
-		std::cout << sum[increment] << " ";
+		std::cout << array[increment] << " ";
 	}
-
-	return;
 }
 
 void main()
 {
-	sumRows();
-	
-	return;
+	const unsigned int MAX_SIZE = 4;
+	int numbersData[MAX_SIZE][MAX_SIZE];
+	int sumEmpty[MAX_SIZE] = {};
+
+	fillArray(numbersData, MAX_SIZE);
+	int* numbersSum = sumRows(numbersData, sumEmpty, MAX_SIZE);
+
+	printArray(numbersSum, MAX_SIZE);
+
 }
