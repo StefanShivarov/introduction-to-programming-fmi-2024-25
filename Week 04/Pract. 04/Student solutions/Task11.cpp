@@ -1,21 +1,19 @@
 #include <iostream>
 
-int* buildArray(int arr[], const int SIZE)
+int* buildArray(int array[], const int SIZE)
 {
-
-	for (int increment = 0; increment < SIZE; ++increment)
+	for (int i = 0; i < SIZE; ++i)
 	{
-		std::cin >> arr[increment];
+		std::cin >> array[i];
 	}
 
-	return arr;
+	return array;
 }
-
-void changeDependency(const int SIZE, bool& dependent, int& ratio, int first_array[], int second_array[])
+void changeDependency(const int SIZE, bool& dependent, int& ratio, int firstArray[], int secondArray[])
 {
 	for (int increment = 0; increment < SIZE; increment++)
 	{
-		if (!(first_array[increment]) && second_array[increment] || (first_array[increment]) && !(second_array[increment]))
+		if (!(firstArray[increment]) && secondArray[increment] || (firstArray[increment]) && !(secondArray[increment]))
 		{
 			dependent = 0;
 			break;
@@ -23,21 +21,19 @@ void changeDependency(const int SIZE, bool& dependent, int& ratio, int first_arr
 
 		if (dependent)
 		{
-			if ( !(first_array[increment] && second_array[increment]))
+			if ( !(firstArray[increment] && secondArray[increment]) && !(secondArray[increment] / firstArray[increment]) )
 			{
 				continue;
 			}
-			if (second_array[increment] / first_array[increment])
+
+			if (!ratio)
 			{
-				if (!ratio)
-				{
-					ratio = second_array[increment] / first_array[increment];
-				}
-				else if (second_array[increment] / first_array[increment] != ratio)
-				{
-					dependent = 0;
-					break;
-				}
+				ratio = secondArray[increment] / firstArray[increment];
+			}
+			else if (secondArray[increment] / firstArray[increment] != ratio)
+			{
+				dependent = 0;
+				break;
 			}
 		}
 	}
@@ -45,31 +41,16 @@ void changeDependency(const int SIZE, bool& dependent, int& ratio, int first_arr
 	return;
 }
 
-bool isDependent(const int SIZE)
-{
-	const unsigned int MAX_SIZE = 15;
-	int numbers_first_empty[MAX_SIZE] = {}; 
-	int numbers_second_empty[MAX_SIZE] = {}; 
+bool isDependent(int arrayFirst[], int arraySecond[], const int SIZE)
+{	
 	bool dependent = 1;
 	int ratio = 0;
 
-	int *numbers_first = buildArray(numbers_first_empty, SIZE);
-	int *numbers_second = buildArray(numbers_second_empty, SIZE);
-
-	changeDependency(SIZE, dependent, ratio, numbers_first, numbers_second);
+	changeDependency(SIZE, dependent, ratio, arrayFirst, arraySecond);
 
 	if (dependent && !ratio)
 	{
-		changeDependency(SIZE, dependent, ratio, numbers_first, numbers_second);
-	}
-
-	if (dependent)
-	{
-		std::cout << "Yes, the arrays are linearly dependent";
-	}
-	else
-	{
-		std::cout << "No, the arrays are not linearly dependent";
+		changeDependency(SIZE, dependent, ratio, arraySecond, arrayFirst);
 	}
 
 	return dependent;
@@ -77,10 +58,24 @@ bool isDependent(const int SIZE)
 
 void main()
 {
+	const unsigned int MAX_SIZE = 15;
+	int numbersFirstEmpty[MAX_SIZE] = {};
+	int numbersSecondEmpty[MAX_SIZE] = {};
+	
 	int numbersQuantity = 0;
 
 	std::cin >> numbersQuantity;
-	bool checkElements = isDependent(numbersQuantity);
-	
-	return;
+	int* numbersFirst = buildArray(numbersFirstEmpty, numbersQuantity);
+	int* numbersSecond = buildArray(numbersSecondEmpty, numbersQuantity);
+
+	bool checkElements = isDependent(numbersFirst, numbersSecond, numbersQuantity);
+
+	if (checkElements)
+	{
+		std::cout << "Yes, the arrays are linearly dependent";
+	}
+	else
+	{
+		std::cout << "No, the arrays are not linearly dependent";
+	}
 }
