@@ -1,30 +1,36 @@
 #include <iostream>
 
-double returnAverage(const int SIZE)
-{ 
-	double result = 0;
-	const unsigned int MAX_SIZE = 15;
-	int numbers[MAX_SIZE] = {};
-
-	for (int increment = 0; increment < SIZE; ++increment)
+int* fillArray(int array[], const int SIZE)
+{
+	for (int i = 0; i < SIZE; ++i)
 	{
-		std::cin >> numbers[increment];
-		result += numbers[increment];
+		std::cin >> array[i];
 	}
 
-	result /= SIZE;
+	return array;
+}
 
-	std::cout << "Average: " << result;
+double returnAverage(int array[], const int SIZE)
+{ 
+	double result = 0;
 
-	return result;
+	for (int i = 0; i < SIZE; ++i)
+	{
+		result += array[i];
+	}
+
+	return result /= SIZE;
 }
 
 void main()
 {
 	int numbersQuantity = 0;
+	const unsigned int MAX_SIZE = 15;
+	int numbersEmpty[MAX_SIZE] = {};
 
 	std::cin >> numbersQuantity;
-	double getAverage = returnAverage(numbersQuantity);
-	
-	return;
+	int* numbersData = fillArray(numbersEmpty, numbersQuantity);
+	double getAverage = returnAverage(numbersData, numbersQuantity);
+
+	std::cout << "Average: " << getAverage;
 }
