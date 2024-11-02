@@ -1,5 +1,15 @@
 #include <iostream>
 
+int* fillArray(int array[], const int SIZE)
+{
+	for (int i = 0; i < SIZE; ++i)
+	{
+		std::cin >> array[i];
+	}
+
+	return array;
+}
+
 int binarySearch(int arr[], int lowPos, int highPos, int x)
 {
 	while (lowPos <= highPos)
@@ -8,7 +18,7 @@ int binarySearch(int arr[], int lowPos, int highPos, int x)
 
 		if (arr[midPos] == x)
 		{
-			return midPos;
+			return 1;
 		}
 
 		if (arr[midPos] < x)
@@ -21,43 +31,30 @@ int binarySearch(int arr[], int lowPos, int highPos, int x)
 		}
 	}
 
-	return -1;
-}
-
-bool isInArray(const int SIZE)
-{ 
-	const unsigned int MAX_SIZE = 15;
-	int numbers[MAX_SIZE] = {};
-	int x = 0;
-
-	for (int increment = 0; increment < SIZE; ++increment)
-	{
-		std::cin >> numbers[increment];
-	}
-
-	std::cout << "x: ";
-	std::cin >> x;
-
-	int findElement = binarySearch(numbers, 0, SIZE - 1, x);
-
-	if (findElement > -1)
-	{
-		std::cout << "Yes, " << x << " is in the array.";
-		return 1;
-	}
-	else
-	{
-		std::cout << "No, " << x << " is not in the array.";
-		return 0;
-	}
+	return 0;
 }
 
 void main()
 {
 	int numbersQuantity = 0;
+	const unsigned int MAX_SIZE = 15;
+	int numbersEmpty[MAX_SIZE] = {};
+	int element = 0;
 
 	std::cin >> numbersQuantity;
-	bool checkItem = isInArray(numbersQuantity);
-	
-	return;
+	int* numbersData = fillArray(numbersEmpty, numbersQuantity);
+
+	std::cout << "x: ";
+	std::cin >> element;
+
+	bool checkItem = binarySearch(numbersData, 0, numbersQuantity, element);
+
+	if (checkItem)
+	{
+		std::cout << "Yes, " << element << " is in the array.";
+	}
+	else
+	{
+		std::cout << "No, " << element << " is not in the array.";
+	}
 }
