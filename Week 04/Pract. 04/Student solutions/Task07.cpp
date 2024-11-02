@@ -1,45 +1,61 @@
 #include <iostream>
 
-bool isDistinctElem(const int SIZE)
-{ 
-	bool distinctElem = 1;
-	const unsigned int MAX_SIZE = 15;
-	int numbers[MAX_SIZE] = {};
-
-	for (int increment = 0; increment < SIZE; ++increment)
+int* fillArray(int array[], const int SIZE)
+{
+	for (int i = 0; i < SIZE; ++i)
 	{
-		std::cin >> numbers[increment];
+		std::cin >> array[i];
 	}
 
-	for (int positionIncrement = 0; positionIncrement < SIZE; ++positionIncrement)
+	return array;
+}
+
+int timesSeen(int array[], const int SIZE, const int NUMBER)
+{
+	unsigned int seen = 0;
+
+	for (int i = 0; i < SIZE; ++i)
 	{
-		for (int digitIncrement = 0; digitIncrement < SIZE; ++digitIncrement)
+		if (array[i] == NUMBER)
 		{
-			if (positionIncrement != digitIncrement && numbers[positionIncrement] == numbers[digitIncrement])
-			{
-				distinctElem = 0;
-			}
+			++seen;
 		}
 	}
 
-	if (distinctElem)
+	return seen;
+}
+
+bool isDistinctElem(int array[], const int SIZE)
+{
+	unsigned int amountPresent = 0;
+
+	for (int i = 0; i < SIZE; ++i)
 	{
-		std::cout << "Yes, the sequence consists of distinct elements.";
-		return distinctElem;
-	}
-	else
-	{
-		std::cout << "No, the sequence does not consist of distinct elements.";
-		return distinctElem;
+		amountPresent = timesSeen(array, SIZE, array[i]);
+
+		if (amountPresent > 1)
+		{
+			return 0;
+		}
 	}
 }
 
 void main()
 {
 	int numbersQuantity = 0;
+	const unsigned int MAX_SIZE = 15;
+	int numbersEmpty[MAX_SIZE] = {};
 
 	std::cin >> numbersQuantity;
-	bool checkElements = isDistinctElem(numbersQuantity);
+	int* numbersData = fillArray(numbersEmpty, numbersQuantity);
+	bool checkElements = isDistinctElem(numbersData, numbersQuantity);
 	
-	return;
+	if (checkElements)
+	{
+		std::cout << "Yes, the sequence consists of distinct elements.";
+	}
+	else
+	{
+		std::cout << "No, the sequence does not consist of distinct elements.";
+	}
 }
