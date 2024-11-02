@@ -1,51 +1,53 @@
 #include <iostream>
 
-void printArray(float* array, const int SIZE) {
-	for (int increment = 0; increment < SIZE; ++increment)
+float* fillArray(float array[], const int SIZE)
+{
+	for (int i = 0; i < SIZE; ++i)
 	{
-		std::cout << array[increment] << " ";
+		std::cin >> array[i];
 	}
 
-	return;
+	return array;
 }
 
-bool sortAscend(const int SIZE)
-{
-	const unsigned int MAX_SIZE = 15;
-	float numbers[MAX_SIZE] = {};
-
-	for (int increment = 0; increment < SIZE; ++increment)
+void printArray(float* array, const int SIZE) {
+	for (int i = 0; i < SIZE; ++i)
 	{
-		std::cin >> numbers[increment];
+		std::cout << array[i] << " ";
 	}
+}
 
-	for (int outIncrement = 0; outIncrement < SIZE - 1; ++outIncrement)
+bool sortAscend(float array[], const int SIZE)
+{
+	for (int i = 0; i < SIZE - 1; ++i)
 	{
-		float minValue = numbers[outIncrement];
+		float minValue = array[i];
 
-		for (int inIncrement = outIncrement + 1; inIncrement < SIZE; ++inIncrement)
+		for (int j = i + 1; j < SIZE; ++j)
 		{
-			if (numbers[inIncrement] < minValue)
+			if (array[j] < minValue)
 			{
-				minValue = numbers[inIncrement];
-				float swap = numbers[outIncrement];
-				numbers[outIncrement] = minValue;
-				numbers[inIncrement] = swap;
+				minValue = array[j];
+				float swap = array[i];
+				array[i] = minValue;
+				array[j] = swap;
 			}
 		}
 	}
 
-	printArray(numbers, SIZE);
-
-	return numbers;
+	return array;
 }
 
 void main()
 {
 	int numbersQuantity = 0;
+	const unsigned int MAX_SIZE = 15;
+	float numbersEmpty[MAX_SIZE] = {};
 
 	std::cin >> numbersQuantity;
-	float sortNums = sortAscend(numbersQuantity);
+	float* numbersData = fillArray(numbersEmpty, numbersQuantity);
+
+	float sortNums = sortAscend(numbersData, numbersQuantity);
 	
-	return;
+	printArray(numbersData, numbersQuantity);
 }
