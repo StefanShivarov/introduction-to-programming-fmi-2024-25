@@ -3,8 +3,6 @@
 void deposit(double& balance, double amount)
 {
 	balance += amount;
-
-	return;
 }
 
 void withdraw(double& balance, double amount)
@@ -12,14 +10,10 @@ void withdraw(double& balance, double amount)
 	if (balance - amount < 1)
 	{
 		std::cout << "Not enough balance!" << std::endl;
-
-		return;
 	}
 	else
 	{
 		balance -= amount;
-
-		return;
 	}
 }
 
@@ -32,6 +26,4 @@ void main()
 	std::cout << balance << std::endl;
 	withdraw(balance, 40);
 	std::cout << balance << std::endl;
-
-	return;
 }
