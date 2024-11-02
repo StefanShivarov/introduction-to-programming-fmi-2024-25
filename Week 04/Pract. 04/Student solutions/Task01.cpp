@@ -7,8 +7,6 @@ void swap(int& a, int& b)
 	b = temp;
 
 	std::cout << "a: " << a << "\nb: " << b;
-
-	return;
 }
 
 void main()
@@ -22,6 +20,4 @@ void main()
 	std::cin >> promptNumberSecond;
 
 	swap(promptNumberFirst, promptNumberSecond);
-
-	return;
 }
