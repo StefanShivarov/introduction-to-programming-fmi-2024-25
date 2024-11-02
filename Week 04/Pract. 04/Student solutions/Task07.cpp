@@ -38,6 +38,8 @@ bool isDistinctElem(int array[], const int SIZE)
 			return 0;
 		}
 	}
+
+	return 1;
 }
 
 void main()
