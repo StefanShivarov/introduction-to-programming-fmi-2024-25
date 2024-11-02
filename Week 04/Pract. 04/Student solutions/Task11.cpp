@@ -19,22 +19,19 @@ void changeDependency(const int SIZE, bool& dependent, int& ratio, int firstArra
 			break;
 		}
 
-		if (dependent)
+		if ( !(firstArray[increment] && secondArray[increment]) && !(secondArray[increment] / firstArray[increment]) )
 		{
-			if ( !(firstArray[increment] && secondArray[increment]) && !(secondArray[increment] / firstArray[increment]) )
-			{
-				continue;
-			}
+			continue;
+		}
 
-			if (!ratio)
-			{
-				ratio = secondArray[increment] / firstArray[increment];
-			}
-			else if (secondArray[increment] / firstArray[increment] != ratio)
-			{
-				dependent = 0;
-				break;
-			}
+		if (!ratio)
+		{
+			ratio = secondArray[increment] / firstArray[increment];
+		}
+		else if (secondArray[increment] / firstArray[increment] != ratio)
+		{
+			dependent = 0;
+			break;
 		}
 	}
 
