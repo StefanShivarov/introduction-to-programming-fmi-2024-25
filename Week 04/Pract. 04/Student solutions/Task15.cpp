@@ -17,15 +17,14 @@ void buildMatrix(std::vector< std::vector<int>>& emptyMatrix)
 
 bool isMultipliable(std::vector< std::vector<int>>& matrixLier, std::vector< std::vector<int>>& matrixLicand)
 {
-	bool multipliable = 1;
 	int firstMatrixCol = matrixLier[0].size();
 	int secondMatrixRow = matrixLicand.size();
 
 	if (firstMatrixCol != secondMatrixRow) {
-		multipliable = 0;
+		return 0;
 	}
 
-	return multipliable;
+	return 1;
 }
 
 void printMatrix(std::vector< std::vector<int>>& matrix)
@@ -46,9 +45,10 @@ void printMatrix(std::vector< std::vector<int>>& matrix)
 	}
 }
 
-void multiplyMatrices(std::vector< std::vector<int>>& matrixLier, std::vector< std::vector<int>>& matrixLicand)
+std::vector<std::vector<int>> multiplyMatrices(std::vector< std::vector<int>>& matrixLier, std::vector< std::vector<int>>& matrixLicand)
 {
 	bool allowed = isMultipliable(matrixLier, matrixLicand);
+	std::vector<std::vector<int>> resultMatrix;
 
 	if (allowed)
 	{
@@ -69,13 +69,12 @@ void multiplyMatrices(std::vector< std::vector<int>>& matrixLier, std::vector< s
 			}
 		}
 
-		printMatrix(resultMatrix);
-		return;
+		return resultMatrix;
 	}
 	else
 	{
-		std::cout << "Matrix multiplication is not possible.";
-		return;
+		resultMatrix.clear();
+		return resultMatrix;
 	}
 }
 
@@ -102,7 +101,12 @@ void main()
 	std::vector<std::vector<int>> matrixSecond(secondMatrixRow, std::vector<int>(secondMatrixCol));
 	buildMatrix(matrixSecond);
 
-	multiplyMatrices(matrixFirst, matrixSecond);
+	std::vector<std::vector<int>> resultMatrix = multiplyMatrices(matrixFirst, matrixSecond);
 	
-	return;
+	if (!(resultMatrix.size())){
+		std::cout << "Matrix multiplication is not possible.";
+	} else
+	{
+		printMatrix(resultMatrix);
+	}
 }
