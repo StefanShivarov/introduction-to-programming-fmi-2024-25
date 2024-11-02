@@ -1,41 +1,49 @@
 #include <iostream>
 
-void negativeRows()
+void fillArray(int (*array)[4], const int SIZE)
 {
-	const unsigned int MAX_SIZE = 4;
-	int numbers[MAX_SIZE][MAX_SIZE] = {};
-	int negatives[MAX_SIZE] = {};
-
-	for (int rowIncrement = 0; rowIncrement < MAX_SIZE; ++rowIncrement)
+	for (int i = 0; i < SIZE; ++i)
 	{
-		for (int columnIncrement = 0; columnIncrement < MAX_SIZE; ++columnIncrement)
+		for (int j = 0; j < SIZE; ++j)
 		{
-			std::cin >> numbers[rowIncrement][columnIncrement];
+			std::cin >> array[i][j];
 		}
 	}
+}
 
-	for (int rowIncrement = 0; rowIncrement < MAX_SIZE; ++rowIncrement)
+int* amountNegatives(int (*array)[4], int* resultArray, const int MAX_SIZE)
+{
+	for (int i = 0; i < MAX_SIZE; ++i)
 	{
-		for (int columnIncrement = 0; columnIncrement < MAX_SIZE; ++columnIncrement)
+		for (int j = 0; j < MAX_SIZE; ++j)
 		{
-			if (numbers[rowIncrement][columnIncrement] < 0)
+			if (array[i][j] < 0)
 			{
-				++negatives[rowIncrement];	
+				++resultArray[i];
 			}
 		}
 	}
 
+	return resultArray;
+}
+
+void printArray(int array[], int MAX_SIZE)
+{
 	for (int increment = 0; increment < MAX_SIZE; ++increment)
 	{
-		std::cout << negatives[increment] << " ";
+		std::cout << array[increment] << " ";
 	}
-
-	return;
 }
 
 void main()
 {
-	negativeRows();
-	
-	return;
+	const unsigned int MAX_SIZE = 4;
+	int numbersData[MAX_SIZE][MAX_SIZE];
+	int sumNegatives[MAX_SIZE] = {};
+
+	fillArray(numbersData, MAX_SIZE);
+	int* numbersNegatives = amountNegatives(numbersData, sumNegatives, MAX_SIZE);
+
+	printArray(numbersNegatives, MAX_SIZE);
+
 }
