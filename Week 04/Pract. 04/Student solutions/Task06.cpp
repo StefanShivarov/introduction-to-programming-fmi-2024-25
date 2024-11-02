@@ -2,7 +2,6 @@
 
 bool isDecreasing(const int SIZE)
 { 
-	bool decreasingSeries = 1;
 	const unsigned int MAX_SIZE = 15;
 	int numbers[MAX_SIZE] = {};
 
@@ -12,19 +11,8 @@ bool isDecreasing(const int SIZE)
 
 		if (increment - 1 > 1 && numbers[increment-1] < numbers[increment]) 
 		{
-			decreasingSeries = 0;
+			return 0;
 		}
-	}
-
-	if (decreasingSeries)
-	{
-		std::cout << "The series is monotonically decreasing.";
-		return decreasingSeries;
-	}
-	else
-	{
-		std::cout << "The series is not monotonically decreasing.";
-		return decreasingSeries;
 	}
 }
 
@@ -35,5 +23,12 @@ void main()
 	std::cin >> numbersQuantity;
 	bool seriesType = isDecreasing(numbersQuantity);
 	
-	return;
+	if (seriesType)
+	{
+		std::cout << "The series is monotonically decreasing.";
+	}
+	else
+	{
+		std::cout << "The series is not monotonically decreasing.";
+	}
 }
