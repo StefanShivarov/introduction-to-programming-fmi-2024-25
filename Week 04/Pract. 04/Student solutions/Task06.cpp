@@ -14,6 +14,8 @@ bool isDecreasing(const int SIZE)
 			return 0;
 		}
 	}
+
+	return 1;
 }
 
 void main()
