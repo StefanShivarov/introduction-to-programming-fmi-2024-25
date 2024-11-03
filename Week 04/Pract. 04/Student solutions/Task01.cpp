@@ -17,6 +17,8 @@ int main() {
 
     cout << "a: " << a << endl;
     cout << "b: " << b << endl;
+
+    return 0;
 }
 
 void swap(int& a, int& b) {
