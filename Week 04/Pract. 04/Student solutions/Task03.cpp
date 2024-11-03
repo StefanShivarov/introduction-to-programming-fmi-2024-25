@@ -17,6 +17,8 @@ int main() {
 
     cout << "Min: " << minValue << endl;
     cout << "Max: " << maxValue << endl;
+
+    return 0;
 }
 
 void findMinMax(const int* arr, int size, int& minValue, int& maxValue) {
