@@ -10,6 +10,7 @@ _Материали от семинари и практикуми на груп�
 | **[02](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2002)** | Цикли. Оператори за цикъл. Break и continue.                                                                                                                    |
 | **[03](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2003)** | Функции                                                                                                                                                         |
 | **[04](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2004)** | Функции (продължение). Масиви. Многомерни масиви.                                                                                                               |
+| **[05](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2005)** | Масиви (продължение). Търсене на елемент в масив. Сортиране на масив. Представяне на символни низове (текст) чрез масиви от символи                             |
 
 ### График на занятията
 
