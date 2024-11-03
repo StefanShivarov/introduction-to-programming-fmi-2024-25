@@ -18,6 +18,8 @@ int main() {
     }
 
     cout << "Average: " << findAverage(arr, n) << endl;
+
+    return 0;
 }
 
 double findAverage(const int arr[], const unsigned int n) {
