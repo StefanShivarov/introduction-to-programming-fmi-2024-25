@@ -2,33 +2,54 @@
 
 using namespace std;
 
-const unsigned int ROWS = 4;
-const unsigned int COLS = 4;
+const unsigned int MAX_SIZE = 50;
 
-int calcSum(const int arr[], const unsigned int n); 
+void readArray(int arr[], const unsigned int n);
+bool areLinearlyDependent(const int arr1[], const int arr2[], const unsigned int n);
 
 int main() {
-    int matrix[ROWS][COLS];
+    int arr1[MAX_SIZE], arr2[MAX_SIZE];
+    unsigned int n;
 
-    for (int i = 0; i < ROWS; ++i) {
-        for (int j = 0; j < COLS; ++j) {
-            cin >> matrix[i][j];
-        }
-    }
+    cout << "N: ";
+    cin >> n;
 
-    for (int i = 0; i < ROWS; ++i) {
-        cout << calcSum(matrix[i], COLS) << (i == ROWS - 1 ? "\n" : " ");
+    readArray(arr1, n);
+    readArray(arr2, n);
+
+    if (areLinearlyDependent(arr1, arr2, n)) {
+        cout << "Yes, the arrays are linearly dependent." << endl;
+    } else {
+        cout << "No, the arrays are not linearly dependent." << endl;
     }
 
     return 0;
 }
 
-int calcSum(const int arr[], const unsigned int n) {
-    int sum = 0;
-
+void readArray(int arr[], const unsigned int n) {
     for (int i = 0; i < n; ++i) {
-        sum += arr[i];
+        cin >> arr[i];
+    }
+}
+
+bool areLinearlyDependent(const int arr1[], const int arr2[], const unsigned int n) {
+    double k;
+    bool isKInitialized = false; 
+    
+    for (int i = 0; i < n; ++i) {
+        if (arr2[i] != 0) {
+            if (!isKInitialized) {
+                k = arr1[i] / ((double) arr2[i]);
+                isKInitialized = true;
+            } else {
+                if (arr2[i] * k != arr1[i]) {
+                    return false;
+                }
+            }
+        } else if (arr1[i] != 0) {
+            return false;
+        }
     }
 
-    return sum;
+    return true;
 }
