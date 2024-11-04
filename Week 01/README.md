@@ -373,20 +373,19 @@ int main() {
   int number = 2;
   switch (number) {
       case 1:
-          cout << "One";
+          cout << "One" << endl;
       case 2:
-          cout << "Two";
+          cout << "Two" << endl;
       case 3:
-          cout << "Three";
+          cout << "Three" << endl;
       default:
-          cout << "Something else...";
+          cout << "Something else..." << endl;
   }
   ```
 
   Резултат:
 
   ```
-  One
   Two
   Three
   Something else...

@@ -369,9 +369,9 @@ Yes, the arrays are linearly dependent.
 
 ```
 N: 2
-M: 2
-1 2
-3 4
+M: 4
+1 2 3 4
+5 6 7 8
 P: 2
 Q: 3
 1 2 3
