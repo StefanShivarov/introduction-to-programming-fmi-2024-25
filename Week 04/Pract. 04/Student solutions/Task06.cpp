@@ -4,7 +4,7 @@ using namespace std;
 
 const unsigned int MAX_SIZE = 50;
 
-bool isDistinct(const int arr[], const unsigned int n);
+bool isDecreasing(const int arr[], const unsigned int n);
 
 int main() {
     int arr[MAX_SIZE];
@@ -17,21 +17,19 @@ int main() {
         cin >> arr[i];
     }
 
-    if (isDistinct(arr, n)) {
-        cout << "Yes, the sequence consists of distinct elements." << endl;
+    if (isDecreasing(arr, n)) {
+        cout << "The series is monotonically decreasing." << endl;
     } else {
-        cout << "No, the sequence does not consist of distinct elements." << endl;
+        cout << "The series is not monotonically decreasing." << endl;
     }
 
     return 0;
 }
 
-bool isDistinct(const int arr[], const unsigned int n) {
-    for (int i = 0; i < n; ++i) {
-        for (int j = i + 1; j < n; ++j) {
-            if (arr[i] == arr[j]) {
-                return false;
-            }
+bool isDecreasing(const int arr[], const unsigned int n) {
+    for (int i = 0; i < n - 1; ++i) {
+        if (arr[i] < arr[i + 1]) {
+            return false;
         }
     }
 
