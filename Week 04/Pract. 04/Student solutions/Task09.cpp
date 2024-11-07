@@ -2,50 +2,90 @@
 
 using namespace std;
 
-const size_t MAX_SIZE = 50;
+const size_t arraySize = 50;
+const size_t minArraySize = 1;
 
-void fill_arr(double* arr, size_t size);
-void bubble_sort(double* arr, size_t size);
-void swap(int& a, int& b);
-void print_arr(const double* arr, size_t size);
+void addElementsToArray(double*, int);
+bool isInputDataCorrect(int);
+void arrayInAscendingOrder(double*, int);
+bool isThere(double*, int, double);
 
 int main() {
-    double arr[MAX_SIZE];
+	int countOfElements = 0, x = 0;
+	double array[arraySize];
+	cout << "Enter the number of values in the array: ";
+	cin >> countOfElements;
 
-    size_t n;
-    cin >> n;
+	addElementsToArray(array, countOfElements);
+	cout << "Enter x: ";
+	cin >> x;
+	arrayInAscendingOrder(array, countOfElements);
 
-    fill_arr(arr, n);
-
-    bubble_sort(arr, n);
-
-    print_arr(arr, n);
-
+	if (isThere(array, countOfElements, x)) {
+		cout << "Yes! " << x << " is in the array.";
+	}
+	else {
+		cout << "No!" << x << " is not in the array.";
+	}
+ 
     return 0;
 }
 
-void fill_arr(double* arr, const size_t size) {
-    for (size_t i = 0; i < size; i++) {
-        cin >> arr[i];
-    }
+bool isThere(double* arr, int count, double x) {
+	int beginning = 0, end = count - 1;
+
+	while (beginning <= end)
+	{
+		int mid = (beginning + end) / 2;
+		if (arr[mid] == x)
+		{
+			return true;
+		}
+		else if (arr[mid] > x)
+		{
+			end = mid - 1;
+		}
+		else
+		{
+			beginning = mid + 1;
+		}
+	}
+
+	return false;
 }
 
-void bubble_sort(double* arr, const size_t size) {
-    for (size_t i = 0; i < size - 1; i++) {
-        for (size_t j = 0; j < size - i - 1; j++) {
-            if (arr[j] > arr[j+1]) swap(arr[j], arr[j+1]);
-        }
-    }
+void arrayInAscendingOrder(double* arr, int count) {
+	double temp = 0;
+
+	for (int k = 0;k < count;k++) {
+		for (int p = k + 1;p < count ;p++) {
+			if (arr[k] > arr[p]) {
+				temp = arr[p];
+				arr[p] = arr[k];
+				arr[k] = temp;
+			}
+		}
+	}
 }
 
-void swap(int& a, int& b) {
-    const int temp = a;
-    a = b;
-    b = temp;
+bool isInputDataCorrect(int size) {
+	if (size < minArraySize || size>arraySize) {
+		return false;
+	}
+	else {
+		return true;
+	}
 }
 
-void print_arr(const double* arr, const size_t size) {
-    for (size_t i = 0; i < size; i++) {
-        cout << arr[i] << " ";
-    }
+void addElementsToArray(double* arr, int size) {
+	cout << "Enter the values: ";
+
+	for (int i = 0;i < size;i++) {
+		cout << "";
+		cin >> arr[i];
+
+		if (i >= size) {
+			break;
+		}
+	}
 }

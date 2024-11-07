@@ -1,42 +1,73 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-const unsigned int ROWS = 4;
-const unsigned int COLS = 4;
-
-void squareEvenElements(int matrix[ROWS][COLS]);
-void printMatrix(const int matrix[ROWS][COLS]);
+void readMatrix(vector<vector<int> >& matrix);
+bool isMultiplicationPossible(const vector<vector<int> >& matrix1, const vector<vector<int> >& matrix2);
+vector<vector<int> > multiplyMatrices(const vector<vector<int> >& matrix1, const vector<vector<int> >& matrix2);
+void printMatrix(const vector<vector<int> >& matrix);
 
 int main() {
-    int matrix[ROWS][COLS];
+    unsigned int n = 0, m = 0, p = 0, q = 0;
 
-    for (int i = 0; i < ROWS; ++i) {
-        for (int j = 0; j < COLS; ++j) {
-            cin >> matrix[i][j];
-        }
+    cout << "N: ";
+    cin >> n;
+    cout << "M: ";
+    cin >> m;
+
+    vector<vector<int> > matrix1(n, vector<int>(m));
+    readMatrix(matrix1);
+
+    cout << "P: ";
+    cin >> p;
+    cout << "Q: ";
+    cin >> q;
+
+    vector<vector<int> > matrix2(p, vector<int>(q));
+    readMatrix(matrix2);
+
+
+    if (isMultiplicationPossible(matrix1, matrix2)) {
+        printMatrix(multiplyMatrices(matrix1, matrix2));
+    } else {
+        cout << "Multiplication is not possible" << endl;
     }
-
-    squareEvenElements(matrix);
-    printMatrix(matrix);
 
     return 0;
 }
 
-void squareEvenElements(int matrix[ROWS][COLS]) {
-    for (int i = 0; i < ROWS; ++i) {
-        for (int j = 0; j < COLS; ++j) {
-            if (matrix[i][j] % 2 == 0) {
-                matrix[i][j] *= matrix[i][j];
-            }
+void readMatrix(vector<vector<int> >& matrix) {
+    for (int i = 0; i < matrix.size(); ++i) {
+        for (int j = 0; j < matrix[i].size(); ++j) {
+            cin >> matrix[i][j];
         }
     }
 }
 
-void printMatrix(const int matrix[ROWS][COLS]) {
-    for (int i = 0; i < ROWS; ++i) {
-        for (int j = 0; j < COLS; ++j) {
-            cout << matrix[i][j] << (j == COLS - 1 ? "\n" : " ");
+bool isMultiplicationPossible(const vector<vector<int> >& matrix1, const vector<vector<int> >& matrix2) {
+    return matrix1[0].size() == matrix2.size();
+}
+
+vector<vector<int> > multiplyMatrices(const vector<vector<int> >& matrix1, const vector<vector<int> >& matrix2) {
+    vector<vector<int> > result(matrix1.size(), vector<int>(matrix2[0].size()));
+
+    for (int i = 0; i < matrix1.size(); ++i) {
+        for (int j = 0; j < matrix2[0].size(); ++j) {
+            for (int k = 0; k < matrix1[0].size(); ++k) {
+                result[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
         }
+    }
+
+    return result;
+}
+
+void printMatrix(const vector<vector<int> >& matrix) {
+    for (int i = 0; i < matrix.size(); ++i) {
+        for (int j = 0; j < matrix[i].size(); ++j) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
     }
 }
