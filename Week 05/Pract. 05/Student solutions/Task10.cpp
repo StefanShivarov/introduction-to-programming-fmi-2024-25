@@ -78,17 +78,11 @@ bool isMagicSquare(const int matrix[MAX_N][MAX_N], const unsigned int n) {
         if (calcRowSum(matrix, n, i) != calcRowSum(matrix, n, i - 1)) {
             return false;
         }
-    }
 
-    for (int i = 1; i < n; ++i) {
         if (calcColSum(matrix, n, i) != calcColSum(matrix, n, i - 1)) {
             return false;
         }
     }
 
-    if (calcFirstDiagonalSum(matrix, n) != calcSecondDiagonalSum(matrix, n)) {
-        return false;
-    }
-
-    return true;
+    return calcFirstDiagonalSum(matrix, n) == calcSecondDiagonalSum(matrix, n);
 }
