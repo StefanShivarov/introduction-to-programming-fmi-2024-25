@@ -2,37 +2,36 @@
 
 using namespace std;
 
-const unsigned int MAX_SIZE = 50;
+const size_t MAX_SIZE = 50;
 
-bool isDistinct(const int arr[], const unsigned int n);
+void fill_arr(char* arr, size_t size);
+bool is_arr_symmetric(const char* arr, size_t size);
 
 int main() {
-    int arr[MAX_SIZE];
-    unsigned int n;
+    char arr[MAX_SIZE];
 
-    cout << "N: ";
+    size_t n;
     cin >> n;
 
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
-    }
+    fill_arr(arr, n);
 
-    if (isDistinct(arr, n)) {
-        cout << "Yes, the sequence consists of distinct elements." << endl;
-    } else {
-        cout << "No, the sequence does not consist of distinct elements." << endl;
-    }
+    if (is_arr_symmetric(arr, n)) cout << "Yes, the array is symmetric.";
+    else cout << "No, the array is not symmetric.";
 
     return 0;
 }
 
-bool isDistinct(const int arr[], const unsigned int n) {
-    for (int i = 0; i < n; ++i) {
-        for (int j = i + 1; j < n; ++j) {
-            if (arr[i] == arr[j]) {
-                return false;
-            }
-        }
+void fill_arr(char* arr, const size_t size) {
+    for (size_t i = 0; i < size; i++) {
+        cin >> arr[i];
+    }
+}
+
+bool is_arr_symmetric(const char* arr, const size_t size) {
+    size_t back = size - 1;
+
+    for (size_t front = 0; front < size / 2; front++) {
+        if (arr[front] != arr[back--]) return false;
     }
 
     return true;

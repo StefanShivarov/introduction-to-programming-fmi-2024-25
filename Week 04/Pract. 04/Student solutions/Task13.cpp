@@ -1,49 +1,42 @@
 #include <iostream>
 
-void fillArray(int (*array)[4], const int SIZE)
-{
-	for (int i = 0; i < SIZE; ++i)
-	{
-		for (int j = 0; j < SIZE; ++j)
-		{
-			std::cin >> array[i][j];
-		}
-	}
+using namespace std;
+
+const unsigned int ROWS = 4;
+const unsigned int COLS = 4;
+
+void squareEvenElements(int matrix[ROWS][COLS]);
+void printMatrix(const int matrix[ROWS][COLS]);
+
+int main() {
+    int matrix[ROWS][COLS];
+
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            cin >> matrix[i][j];
+        }
+    }
+
+    squareEvenElements(matrix);
+    printMatrix(matrix);
+
+    return 0;
 }
 
-int* amountNegatives(int (*array)[4], int* resultArray, const int MAX_SIZE)
-{
-	for (int i = 0; i < MAX_SIZE; ++i)
-	{
-		for (int j = 0; j < MAX_SIZE; ++j)
-		{
-			if (array[i][j] < 0)
-			{
-				++resultArray[i];
-			}
-		}
-	}
-
-	return resultArray;
+void squareEvenElements(int matrix[ROWS][COLS]) {
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            if (matrix[i][j] % 2 == 0) {
+                matrix[i][j] *= matrix[i][j];
+            }
+        }
+    }
 }
 
-void printArray(int array[], int MAX_SIZE)
-{
-	for (int increment = 0; increment < MAX_SIZE; ++increment)
-	{
-		std::cout << array[increment] << " ";
-	}
-}
-
-void main()
-{
-	const unsigned int MAX_SIZE = 4;
-	int numbersData[MAX_SIZE][MAX_SIZE];
-	int sumNegatives[MAX_SIZE] = {};
-
-	fillArray(numbersData, MAX_SIZE);
-	int* numbersNegatives = amountNegatives(numbersData, sumNegatives, MAX_SIZE);
-
-	printArray(numbersNegatives, MAX_SIZE);
-
+void printMatrix(const int matrix[ROWS][COLS]) {
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            cout << matrix[i][j] << (j == COLS - 1 ? "\n" : " ");
+        }
+    }
 }

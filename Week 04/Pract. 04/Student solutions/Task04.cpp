@@ -1,33 +1,36 @@
 #include <iostream>
 
-using namespace std;
+int* fillArray(int array[], const int SIZE)
+{
+	for (int i = 0; i < SIZE; ++i)
+	{
+		std::cin >> array[i];
+	}
 
-void findMinMax(const int* arr, int size, int& minValue, int& maxValue);
-
-int main() {
-    const int size = 5;
-
-    int arr[size];
-
-    for (int i = 0; i < size; i++) {
-        cin >> arr[i];
-    }
-
-    int minValue, maxValue;
-
-    findMinMax(arr, size, minValue, maxValue);
-
-    cout << "Min: " << minValue << endl;
-    cout << "Max: " << maxValue << endl;
-
-    return 0;
+	return array;
 }
 
-void findMinMax(const int* arr, int size, int& minValue, int& maxValue) {
-    minValue = maxValue = arr[0];
+double returnAverage(int array[], const int SIZE)
+{ 
+	double result = 0;
 
-    for (int i = 0; i < size; i++) {
-        if (minValue > arr[i]) minValue = arr[i];
-        if (maxValue < arr[i]) maxValue = arr[i];
-    }
+	for (int i = 0; i < SIZE; ++i)
+	{
+		result += array[i];
+	}
+
+	return result /= SIZE;
+}
+
+void main()
+{
+	int numbersQuantity = 0;
+	const unsigned int MAX_SIZE = 15;
+	int numbersEmpty[MAX_SIZE] = {};
+
+	std::cin >> numbersQuantity;
+	int* numbersData = fillArray(numbersEmpty, numbersQuantity);
+	double getAverage = returnAverage(numbersData, numbersQuantity);
+
+	std::cout << "Average: " << getAverage;
 }

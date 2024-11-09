@@ -1,37 +1,33 @@
 #include <iostream>
 
-void findMinMax(const int* arr, int size, int& minValue, int& maxValue)
-{
-	minValue = arr[0];
-	maxValue = arr[0];
+using namespace std;
 
-	for (int increment = 0; increment < size; ++increment)
-	{
-		if (minValue > arr[increment])
-		{
-			minValue = arr[increment];
-		}
-		if (maxValue < arr[increment])
-		{
-			maxValue = arr[increment];
-		}
-	}
-	std::cout << "Min: " << minValue << "\nMax: " << maxValue;
+void findMinMax(const int* arr, int size, int& minValue, int& maxValue);
+
+int main() {
+    const int size = 5;
+
+    int arr[size];
+
+    for (int i = 0; i < size; i++) {
+        cin >> arr[i];
+    }
+
+    int minValue, maxValue;
+
+    findMinMax(arr, size, minValue, maxValue);
+
+    cout << "Min: " << minValue << endl;
+    cout << "Max: " << maxValue << endl;
+
+    return 0;
 }
 
-void main()
-{
-	const int ARRAY_SIZE = 5;
-	int minimum = 0;
-	int maximum = 0;
+void findMinMax(const int* arr, int size, int& minValue, int& maxValue) {
+    minValue = maxValue = arr[0];
 
-	int numbers[ARRAY_SIZE];
-	for (int increment = 0; increment < ARRAY_SIZE; ++increment)
-	{
-		int insertingValue = 0;
-		std::cin >> insertingValue;
-		numbers[increment] = insertingValue;
-	}
-
-	findMinMax(numbers, ARRAY_SIZE, minimum, maximum);
+    for (int i = 0; i < size; i++) {
+        if (minValue > arr[i]) minValue = arr[i];
+        if (maxValue < arr[i]) maxValue = arr[i];
+    }
 }

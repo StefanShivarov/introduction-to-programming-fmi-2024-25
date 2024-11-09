@@ -2,90 +2,54 @@
 
 using namespace std;
 
-const size_t arraySize = 50;
-const size_t minArraySize = 1;
+const unsigned int MAX_SIZE = 50;
 
-void addElementsToArray(double*, int);
-bool isInputDataCorrect(int);
-void arrayInAscendingOrder(double*, int);
-bool isThere(double*, int, double);
+void readArray(int arr[], const unsigned int n);
+bool areLinearlyDependent(const int arr1[], const int arr2[], const unsigned int n);
 
 int main() {
-	int countOfElements = 0, x = 0;
-	double array[arraySize];
-	cout << "Enter the number of values in the array: ";
-	cin >> countOfElements;
+    int arr1[MAX_SIZE], arr2[MAX_SIZE];
+    unsigned int n;
 
-	addElementsToArray(array, countOfElements);
-	cout << "Enter x: ";
-	cin >> x;
-	arrayInAscendingOrder(array, countOfElements);
+    cout << "N: ";
+    cin >> n;
 
-	if (isThere(array, countOfElements, x)) {
-		cout << "Yes! " << x << " is in the array.";
-	}
-	else {
-		cout << "No!" << x << " is not in the array.";
-	}
- 
+    readArray(arr1, n);
+    readArray(arr2, n);
+
+    if (areLinearlyDependent(arr1, arr2, n)) {
+        cout << "Yes, the arrays are linearly dependent." << endl;
+    } else {
+        cout << "No, the arrays are not linearly dependent." << endl;
+    }
+
     return 0;
 }
 
-bool isThere(double* arr, int count, double x) {
-	int beginning = 0, end = count - 1;
-
-	while (beginning <= end)
-	{
-		int mid = (beginning + end) / 2;
-		if (arr[mid] == x)
-		{
-			return true;
-		}
-		else if (arr[mid] > x)
-		{
-			end = mid - 1;
-		}
-		else
-		{
-			beginning = mid + 1;
-		}
-	}
-
-	return false;
+void readArray(int arr[], const unsigned int n) {
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
 }
 
-void arrayInAscendingOrder(double* arr, int count) {
-	double temp = 0;
+bool areLinearlyDependent(const int arr1[], const int arr2[], const unsigned int n) {
+    double k;
+    bool isKInitialized = false; 
+    
+    for (int i = 0; i < n; ++i) {
+        if (arr2[i] != 0) {
+            if (!isKInitialized) {
+                k = arr1[i] / ((double) arr2[i]);
+                isKInitialized = true;
+            } else {
+                if (arr2[i] * k != arr1[i]) {
+                    return false;
+                }
+            }
+        } else if (arr1[i] != 0) {
+            return false;
+        }
+    }
 
-	for (int k = 0;k < count;k++) {
-		for (int p = k + 1;p < count ;p++) {
-			if (arr[k] > arr[p]) {
-				temp = arr[p];
-				arr[p] = arr[k];
-				arr[k] = temp;
-			}
-		}
-	}
-}
-
-bool isInputDataCorrect(int size) {
-	if (size < minArraySize || size>arraySize) {
-		return false;
-	}
-	else {
-		return true;
-	}
-}
-
-void addElementsToArray(double* arr, int size) {
-	cout << "Enter the values: ";
-
-	for (int i = 0;i < size;i++) {
-		cout << "";
-		cin >> arr[i];
-
-		if (i >= size) {
-			break;
-		}
-	}
+    return true;
 }
