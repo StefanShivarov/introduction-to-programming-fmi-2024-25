@@ -12,6 +12,16 @@ bool ifTriangle(int* array)
 		{
 			return 0;
 		}
+
+		if (firstSide + thirdSide < secondSide )
+		{
+			return 0;
+		}
+
+		if (thirdSide + secondSide < firstSide )
+		{
+			return 0;
+		}
 		
 		return 1;
 	}
