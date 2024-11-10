@@ -11,6 +11,7 @@ _Материали от семинари и практикуми на груп�
 | **[03](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2003)** | Функции                                                                                                                                                         |
 | **[04](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2004)** | Функции (продължение). Масиви. Многомерни масиви.                                                                                                               |
 | **[05](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2005)** | Подготовка за контролно 1. Масиви (продължение). Търсене на елемент в масив. Сортиране на масив.                                                                |
+| **[06](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2006)** | Матрици (продължение): Диагонали на матрица и спирали.                                                                                                          |
 
 ### График на занятията
 
