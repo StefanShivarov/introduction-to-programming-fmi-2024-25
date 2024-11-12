@@ -341,7 +341,6 @@ Yes, the arrays are linearly dependent.
 ---
 
 **Задача 14.** Дадени са матриците A и B, с размери NxM и PxQ. Да се изведе произведението на A и B, ако това е възможно, или да се изведе съобщение, че не е.
-Използвайте [std::vector](https://en.cppreference.com/w/cpp/container/vector).
 
 **Пример:**
 
