@@ -3,13 +3,13 @@ using namespace std;
 
 const unsigned MAX_SIZE = 50;
 
-void printCol(int matrix[][MAX_SIZE], unsigned size, int colIndex) {
+void printCol(const int matrix[][MAX_SIZE], unsigned size, int colIndex) {
     for (int i = 0; i < size; i++) {
         cout << matrix[i][colIndex] << " ";
     }
 }
 
-void printColReversed(int matrix[][MAX_SIZE], unsigned size, int colIndex) {
+void printColReversed(const int matrix[][MAX_SIZE], unsigned size, int colIndex) {
     for (int i = size - 1; i >= 0; i--) {
         cout << matrix[i][colIndex] << " ";
     }
