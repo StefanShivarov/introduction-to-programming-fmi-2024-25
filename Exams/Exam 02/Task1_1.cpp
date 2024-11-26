@@ -7,7 +7,7 @@ bool isInsideInterval(int n, int min, int max) {
     return n >= min && n <= max;
 }
 
-double getAverage(int arr[], unsigned size) {
+double getAverage(const int arr[], unsigned size) {
     double sum = 0.0;
     for (int i = 0; i < size; i++) {
         sum += arr[i];
