@@ -12,14 +12,9 @@ int main() {
     char str1[] = "Hello, World!";
     char str2[MAX_SIZE];
 
-    myStrcpy(str2, str1);
-
     cout << "[ORIGINAL] str1: " << str1 << endl;
-    cout << "[AFTER STRCPY] str2: " << str2 << endl;
-
-    myStrcat(str2, " Goodbye, World!");
-
-    cout << "[AFTER STRCAT] str2: " << str2 << endl;
+    cout << "[AFTER STRCPY] str2: " << myStrcpy(str2, str1) << endl;
+    cout << "[AFTER STRCAT] str2: " << myStrcat(str2, " Goodbye!") << endl;
 
     cout << "Length of str1: " << myStrlen(str1) << endl;
 
