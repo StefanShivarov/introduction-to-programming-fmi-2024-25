@@ -1,101 +1,54 @@
 #include <iostream>
 
-void fillArray(char *, const size_t);
-size_t convertKthToDec(char *, const size_t, size_t);
-size_t convertSymbolToNumber(char, size_t);
-char convertNumberToSymbol(size_t number);
+const size_t MAX_SIZE = 30;
+
+void findEqualPrefix(char *first, char *second, char *third, char *result);
 
 int main()
 {
-	const size_t MAX_SIZE = 100;
-	char symbols[MAX_SIZE];
-	char symbolsSecond[MAX_SIZE];
-	size_t symbolsLength = 0;
-	size_t symbolsSecondLength = 0;
+	char words[MAX_SIZE];
+	char words1[MAX_SIZE];
+	char words2[MAX_SIZE];
+	char result[MAX_SIZE];
 
-	size_t numeralSystem = 0;
-	size_t numeralSystemSecond = 0;
+	std::cin >> words >> words1 >> words2;
 
-	size_t inDecimal = 0;
-	size_t inDecimalSecond = 0;
+	findEqualPrefix(words, words1, words2, result);
 
-	std::cin >> symbolsLength >> numeralSystem;
-	fillArray(symbols, symbolsLength);
-	std::cin >> symbolsSecondLength >> numeralSystemSecond;
-	fillArray(symbolsSecond, symbolsSecondLength);
-
-	inDecimal = convertKthToDec(symbols, symbolsLength, numeralSystem);
-	inDecimalSecond = convertKthToDec(symbolsSecond, symbolsSecondLength, numeralSystemSecond);
-
-	inDecimal == inDecimalSecond ? std::cout << "true" : std::cout << "false";
-
-	return 0;
+	std::cout << result;
 }
 
-size_t convertSymbolToNumber(char symbol, size_t ERRCODE)
+void findEqualPrefix(char *first, char *second, char *third, char *result)
 {
-	size_t result = 0;
+	size_t i = 0;
+	size_t j = 0;
 
-	if (symbol >= '0' && symbol <= '9')
+	while (*(first + i))
 	{
-		return result = symbol - '0';
-	}
-
-	if (symbol >= 'A' && symbol <= 'Z')
-	{
-		return result = symbol - 'A' + 10;
-	}
-
-	if (symbol >= 'a' && symbol <= 'z')
-	{
-		return result = symbol - 'a' + 10;
-	}
-
-	return ERRCODE;
-}
-
-size_t convertKthToDec(char *array, const size_t SIZE, size_t system)
-{
-	size_t result = 0;
-	size_t multiplier = 1;
-	size_t convertedSymbol = 0;
-	const size_t ERRCODE = 0xDDDD;
-
-	for (int i = SIZE - 1; i >= 0; --i)
-	{
-		convertedSymbol = convertSymbolToNumber(array[i], ERRCODE);
-		if (convertedSymbol == ERRCODE)
+		if (*(first + i) == *(second + i))
 		{
-			return ERRCODE;
+			if (*(second + i) == *(third + i))
+			{
+				*(result + j) = *(first + i);
+				j++;
+			}
+			else
+			{
+				*(result + j) = '\0';
+				j++;
+				return;
+			}
 		}
-
-		result += convertedSymbol * multiplier;
-		multiplier *= system;
+		else
+		{
+			*(result + j) = '\0';
+			j++;
+			return;
+		}
+	
+	i++;
 	}
 
-	return result;
-}
-
-char convertNumberToSymbol(size_t number)
-{
-	char symbol = ' ';
-
-	if (number >= 0 && number <= 9)
-	{
-		return symbol = number + '0';
-	}
-	if (number > 9)
-	{
-		return symbol = number - 10 + 'A';
-	}
-
-	return symbol;
-}
-
-void fillArray(char *array, const size_t SIZE)
-{
-	for (size_t i = 0; i < SIZE; ++i)
-	{
-		std::cin >> array[i];
-	}
+	*(result + j) = '\0';
+	j++;
 }
