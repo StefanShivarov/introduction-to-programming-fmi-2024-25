@@ -1,20 +1,47 @@
 #include <iostream>
 
-size_t returnMultPow (size_t num, size_t pow);
+const size_t MAX_SIZE = 30;
 
-int main ()
+void eraseRepeating(char *symbols, char *result);
+
+int main()
 {
-	size_t num = 0;
-	size_t pow = 0;
+	char words[MAX_SIZE];
+	char result[MAX_SIZE] = "\0";
 
-	std::cin >> num >> pow;
+	std::cin >> words;
 
-	size_t result = returnMultPow(num, pow);
+	eraseRepeating(words, result);
 
 	std::cout << result;
 }
 
-size_t returnMultPow (size_t num, size_t pow)
+void eraseRepeating(char *symbols, char *result)
 {
-	return num << pow;
+	size_t i = 0;
+
+	while (*(symbols + i))
+	{
+		size_t j = 0;
+		bool exist = 0;
+
+		while(*(result + j))
+		{
+			if (*(symbols + i) == *(result + j))
+			{
+				exist = 1;
+			}
+
+			j++;
+		}
+
+		if (!exist)
+		{
+			*(result + j) = *(symbols + i);
+			j++;
+			*(result + j) = '\0';
+		}
+
+		i++;
+	}
 }
