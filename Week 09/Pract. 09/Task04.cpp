@@ -1,90 +1,129 @@
 #include <iostream>
 
-char convertNumberToSymbol(size_t number);
-void convertDecToKth(char *, size_t &, size_t, size_t);
-bool checkPalindrome(char *, size_t);
+const size_t MAX_SIZE = 30;
+
+size_t myStrlen(char *symbols);
+void changeStr(char *source, char *dest);
+char returnSymbol(char *symbols, size_t startPos, size_t symbolStep);
+size_t findStrEnd(char *source);
+void substring(char *source, char *dest, size_t beg, size_t end);
 
 int main()
 {
-	const size_t MAX_SIZE = 100;
-	char symbols[MAX_SIZE];
-	size_t decimalNum = 0;
-	size_t symbolsLength = 0;
-	size_t numeralSystem = 0;
+	char words[MAX_SIZE];
+	char result[MAX_SIZE];
 
-	std::cout << "Number in decimal: ";
-	std::cin >> decimalNum;
-	std::cout << "Numberal system: ";
-	std::cin >> numeralSystem;
+	std::cin.getline(words, MAX_SIZE);
 
-	convertDecToKth(symbols, symbolsLength, decimalNum, numeralSystem);
-	bool palindrome = checkPalindrome(symbols, symbolsLength);
+	changeStr(words, result);
 
-	palindrome	?	std::cout << "true" : std::cout << "false";
-
-	return 0;
+	std::cout << result;
 }
 
-bool checkPalindrome(char *arr, size_t arraySize)
+size_t myStrlen(char *symbols)
 {
-	for (int i = 0, j = arraySize - 1; i < arraySize; ++i, j--)
+	size_t i = 0;
+
+	while(*(symbols + i))
 	{
-		if (arr[i] != arr[j])
+		i++;
+	}
+
+	return i;
+}
+
+size_t findStrEnd(char *source)
+{
+	size_t position = 0;
+	size_t i = 0;
+
+	while (*(source + i))
+	{
+		if (*(source + i) == '"')
 		{
-			return 0;
+			position = i;
 		}
+
+		i++;
 	}
 
-	return 1;
+	return position;
 }
 
-char convertNumberToSymbol(size_t number)
+char returnSymbol(char *symbols, size_t startPos, size_t symbolStep)
 {
-	char symbol = ' ';
+	size_t symbolPos = 2 * symbolStep;
 
-	if (number >= 0 && number <= 9)
-	{
-		return symbol = number + '0';
-	}
-	if (number > 9)
-	{
-		return symbol = number - 10 + 'A';
-	}
+	char symbol = *(symbols + startPos + symbolPos);
 
 	return symbol;
 }
 
-void convertDecToKth(char *array, size_t &resultSize, size_t number, size_t system)
+void changeStr(char *source, char *dest)
 {
-	char symbol = ' ';
+	size_t counter = 0;
+	size_t i = 0;
+	size_t substringEnd = 0;
+	char tempResult[MAX_SIZE];
+	char x = ' ';
+	char a = ' ';
+	char b = ' ';
 
-	while (1)
+	substringEnd = findStrEnd(source);
+
+	substring(source, tempResult, 0, substringEnd);
+
+	x = returnSymbol(source, substringEnd, 1);
+	a = returnSymbol(source, substringEnd, 2);
+	b = returnSymbol(source, substringEnd, 3);
+
+	while(*(tempResult + i))
 	{
-		if (number >= system)
+		if (*(tempResult + i) == x && !(counter & 1) )
 		{
-			if (number % system)
-			{
-				symbol = convertNumberToSymbol(number % system);
-				array[resultSize] = symbol;
-				number -= number % system;
-				number /= system;
-				++resultSize;
-			}
-			else
-			{
-				symbol = convertNumberToSymbol(0);
-				array[resultSize] = symbol;
-				number /= system;
-				++resultSize;
-			}
+			*(dest + i) = a;
+			counter++;
+		}
+		else if ( *(tempResult + i) == x && counter & 1 )
+		{
+			*(dest + i) = b;
+			counter++;
 		}
 		else
 		{
-			symbol = convertNumberToSymbol(number);
-			array[resultSize] = symbol;
-			number = 0;
-			++resultSize;
-			break;
+			*(dest + i) = *(tempResult + i);
 		}
+
+		i++;
 	}
+
+	*(dest + i) = '\0';
+	i++;
+}
+
+void substring(char *source, char *dest, size_t beg, size_t end)
+{
+	size_t sourceLength = myStrlen(source);
+	size_t endIndex = sourceLength - 1;
+	size_t j = 0;
+
+	if (sourceLength < beg || end < beg)
+	{
+		*dest = ' ';
+		j++;
+		*(dest + j) = '\0';
+		return;
+	}
+
+	if (sourceLength > end)
+	{
+		endIndex = end;
+	}
+
+	for (size_t i = beg; i <= endIndex; ++i, ++j)
+	{
+		*(dest + j) = *(source + i);
+	}
+
+	*(dest + j) = '\0';
 }
