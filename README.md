@@ -14,6 +14,8 @@ _Материали от семинари и практикуми на груп�
 | **[06](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2006)** | Матрици (продължение): Диагонали на матрица и спирали.                                                                                                          |
 | **[07](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2007)** | Бройни системи. Побитови операции.                                                                                                                              |
 | **[08](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2008)** | Указатели. Aдресна аритметикa.                                                                                                                                  |
+| **[09](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%2009)** | Символни низове в C++                                                                                                                                  |
+| **[10](https://github.com/StefanShivarov/introduction-to-programming-fmi-2024-25/tree/main/Week%20010)** | Динамична памет. Stack и Heap. Memory leak. Оператори new и delete.                                                                                                                                  |
 
 ### График на занятията
 
